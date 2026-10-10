@@ -1,0 +1,850 @@
+
+/* =========================
+   GENERAL SETTINGS
+========================= */
+
+:root {
+    --red: #990000;
+    --dark-red: #750000;
+    --light-red: #fff0f0;
+    --white: #ffffff;
+    --dark: #292929;
+    --gray: #555555;
+    --border: #e8e8e8;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--dark);
+    background: var(--white);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font: inherit;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+}
+
+/* =========================
+   HEADER AND LOGO
+========================= */
+
+.site-header {
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    min-height: 82px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+}
+
+.brand-text strong {
+    font-size: 23px;
+    color: var(--red);
+    letter-spacing: -0.5px;
+}
+
+.brand-subtitle {
+    font-size: 12px;
+    color: #555555;
+    font-weight: 600;
+}
+
+.brand-text small {
+    font-size: 9px;
+    color: #666666;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-link {
+    position: relative;
+    padding: 10px 0;
+    font-size: 13px;
+    font-weight: 800;
+    color: #292929;
+    text-transform: uppercase;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--red);
+}
+
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    height: 2px;
+    background: var(--red);
+}
+
+.enroll-button {
+    background: var(--red);
+    color: white;
+    padding: 14px 20px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+
+.enroll-button:hover {
+    background: var(--dark-red);
+}
+
+.menu-button {
+    display: none;
+    background: white;
+    border: 1px solid var(--border);
+    color: var(--red);
+    border-radius: 6px;
+    padding: 5px 11px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* =========================
+   CCS-MS DROPDOWN
+========================= */
+
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-arrow {
+    font-size: 10px;
+    margin-left: 3px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 312px;
+    max-height: 75vh;
+    overflow-y: auto;
+    padding: 8px 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    z-index: 2000;
+}
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 13px 25px;
+    color: #333333;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.dropdown-menu a:hover {
+    background: var(--light-red);
+    color: var(--red);
+}
+
+/* =========================
+   PAGE SWITCHING
+========================= */
+
+.page-section {
+    display: none;
+    min-height: 65vh;
+}
+
+.page-section.active-page {
+    display: block;
+}
+
+/* =========================
+   HOME HERO
+========================= */
+
+.home-hero {
+    background: linear-gradient(110deg, #fffaf7, #fff5f5);
+    padding: 55px 0 70px;
+}
+
+.home-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: center;
+    gap: 45px;
+}
+
+.home-hero-text {
+    padding: 10px 0;
+}
+
+.home-eyebrow {
+    color: #a00000;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.home-hero-text h1 {
+    color: #292929;
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1.02;
+    font-weight: 800;
+    margin: 18px 0 25px;
+}
+
+.home-hero-text h1 span {
+    color: var(--red);
+}
+
+.home-hero-text p {
+    color: #555555;
+    max-width: 520px;
+    font-size: 16px;
+    line-height: 1.85;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hero-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 23px;
+    border: 1px solid var(--red);
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.hero-button-red {
+    color: white;
+    background: var(--red);
+}
+
+.hero-button-red:hover {
+    background: var(--dark-red);
+}
+
+.hero-button-outline {
+    color: var(--red);
+    background: transparent;
+}
+
+.hero-button-outline:hover {
+    background: var(--light-red);
+}
+
+.home-hero-image {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.home-hero-image img {
+    width: 100%;
+    height: 340px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* =========================
+   HOME FEATURE CARDS
+========================= */
+
+.home-feature-area {
+    padding-top: 0;
+    padding-bottom: 55px;
+}
+
+.home-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 26px;
+}
+
+.home-feature-card {
+    min-height: 285px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: white;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+}
+
+.home-feature-icon {
+    width: 59px;
+    height: 59px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 22px;
+    border-radius: 12px;
+    background: var(--light-red);
+    color: var(--red);
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.home-feature-card h2 {
+    color: var(--dark);
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.home-feature-card p {
+    color: var(--gray);
+    font-size: 13.5px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+.home-card-link {
+    margin-top: auto;
+    color: var(--red);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+/* =========================
+   INNER PAGE BANNERS
+========================= */
+
+.page-banner {
+    background: linear-gradient(120deg, #800000, #b22222);
+    color: white;
+    padding: 60px 0;
+}
+
+.page-banner h1 {
+    font-size: clamp(30px, 4vw, 43px);
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.page-banner p {
+    max-width: 700px;
+    color: #ffeaea;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+.page-content {
+    padding-top: 40px;
+    padding-bottom: 55px;
+}
+
+.content-panel {
+    padding: 30px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 25px;
+}
+
+.content-panel h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.content-panel p {
+    color: var(--gray);
+    margin-bottom: 14px;
+}
+
+/* =========================
+   CCS-MS SYSTEM LIST
+========================= */
+
+.system-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.system-item {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+}
+
+.system-item:last-child {
+    border-bottom: none;
+}
+
+.system-item:hover {
+    background: var(--light-red);
+    color: var(--red);
+}
+
+/* =========================
+   STUDENT UPDATES
+========================= */
+
+.updates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.update-card {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: white;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease;
+}
+
+.update-card:hover {
+    transform: translateY(-4px);
+}
+
+.update-card img {
+    width: 100%;
+    height: 215px;
+    object-fit: cover;
+    display: block;
+    background: var(--light-red);
+}
+
+.update-body {
+    padding: 22px;
+}
+
+.update-label {
+    display: inline-block;
+    color: var(--red);
+    background: var(--light-red);
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.update-body h3 {
+    font-size: 19px;
+    margin-bottom: 9px;
+}
+
+.update-body p {
+    font-size: 14px;
+    color: var(--gray);
+}
+
+/* =========================
+   ABOUT: DESIGNER PROFILE
+========================= */
+
+.designer-card {
+    display: grid;
+    grid-template-columns: minmax(250px, 0.8fr) minmax(0, 1.4fr);
+    gap: 35px;
+    align-items: start;
+    padding: 32px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    background: white;
+}
+
+.designer-photo {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--light-red);
+}
+
+.designer-photo img {
+    width: 100%;
+    height: 420px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.designer-label {
+    display: inline-block;
+    color: var(--red);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    margin-bottom: 10px;
+}
+
+.designer-details h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.designer-intro {
+    color: var(--gray);
+    margin-bottom: 22px;
+}
+
+.designer-info {
+    padding: 18px 20px;
+    background: #fff8f8;
+    border-left: 4px solid var(--red);
+    border-radius: 6px;
+    margin-bottom: 25px;
+}
+
+.designer-info p {
+    margin-bottom: 10px;
+    overflow-wrap: anywhere;
+}
+
+.designer-info p:last-child {
+    margin-bottom: 0;
+}
+
+.designer-info strong {
+    color: #333333;
+}
+
+.website-description h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.website-description p {
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer {
+    background: #202020;
+    color: white;
+    padding-top: 38px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    padding-bottom: 30px;
+}
+
+.footer-brand {
+    color: white;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.footer-content p {
+    color: #cccccc;
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.footer-links a {
+    color: #eeeeee;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: #ffb7b7;
+}
+
+.copyright {
+    border-top: 1px solid #414141;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    text-align: center;
+}
+
+.copyright p {
+    color: #c7c7c7;
+    font-size: 12px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 950px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    .brand-text strong {
+        font-size: 19px;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 7px;
+        width: 100%;
+        padding: 12px 0 5px;
+    }
+
+    .nav-menu.show-menu {
+        display: flex;
+    }
+
+    .nav-link {
+        display: inline-block;
+        padding: 10px;
+    }
+
+    .nav-link.active::after {
+        display: none;
+    }
+
+    .enroll-button {
+        align-self: flex-start;
+    }
+
+    .nav-dropdown {
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        max-height: 300px;
+        box-shadow: none;
+        border: 1px solid var(--border);
+        margin-top: 5px;
+    }
+
+    .nav-dropdown:hover .dropdown-menu {
+        display: none;
+    }
+
+    .nav-dropdown:focus-within .dropdown-menu {
+        display: block;
+    }
+
+    .home-hero-grid {
+        gap: 25px;
+    }
+
+    .home-feature-grid,
+    .updates-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .designer-card {
+        grid-template-columns: 1fr;
+    }
+
+    .designer-photo {
+        max-width: 320px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+    .container {
+        width: 92%;
+    }
+
+    .brand-logo {
+        width: 44px;
+        height: 44px;
+    }
+
+    .brand-text strong {
+        font-size: 17px;
+    }
+
+    .brand-subtitle {
+        font-size: 10px;
+    }
+
+    .brand-text small {
+        font-size: 8px;
+        letter-spacing: 0.6px;
+    }
+
+    .home-hero {
+        padding: 40px 0 45px;
+    }
+
+    .home-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .home-hero-text h1 {
+        font-size: 48px;
+    }
+
+    .home-hero-text p {
+        font-size: 14px;
+    }
+
+    .home-hero-image img {
+        height: auto;
+        max-height: 300px;
+    }
+
+    .hero-buttons {
+        gap: 10px;
+    }
+
+    .hero-button {
+        padding: 12px 14px;
+        font-size: 12px;
+    }
+
+    .home-feature-grid,
+    .updates-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-feature-card {
+        min-height: auto;
+        padding: 24px;
+    }
+
+    .page-banner {
+        padding: 42px 0;
+    }
+
+    .page-content {
+        padding-top: 28px;
+        padding-bottom: 38px;
+    }
+
+    .content-panel,
+    .designer-card {
+        padding: 20px;
+    }
+
+    .designer-photo img {
+        height: auto;
+        max-height: 420px;
+    }
+
+    .designer-details h2 {
+        font-size: 25px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        gap: 12px 18px;
+    }
+}
